@@ -1,0 +1,262 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Assure qu'aucun défilement ne se produit */
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+}
+
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Assure qu'il n'y ait pas de débordement visible */
+}
+
+video {
+  position: absolute; /* Assure que la vidéo est positionnée correctement */
+  top: 0;
+  left: 0;
+  width: 100%; /* Remplit le conteneur en largeur */
+  height: 100%; /* Remplit le conteneur en hauteur */
+  object-fit:cover; 
+  filter: saturate(130%), contrast(110%) brightness(110%);
+  image-rendering: pixelated;
+}
+
+svg{
+  display: none;
+}
+  
+
+
+::-webkit-scrollbar {
+  visibility: hidden; /* Largeur de la barre de défilement */
+}
+
+
+/*=====================================================*/
+
+#notifBox {
+  width: 300px;
+  height: 50px;
+  background-color: black;
+  border-radius: 8px;    /* Optionnel: coins arrondis */
+
+  display: flex;
+  justify-content: center; /* Centre le texte horizontalement */
+  position: absolute;
+
+  top: 20px; /* Ajuster selon vos besoins */
+  z-index: 1; /* Assure que la boîte est au-dessus de la vidéo */
+  opacity: 0;
+}
+
+#notifText {
+  color: white;
+  font-size: 20px;
+  margin: 0;                /* Supprimer les marges par défaut du texte */
+
+  display: flex;
+  justify-content: center; /* Centre le texte horizontalement */
+  align-items: center; /* Centre verticalement les éléments enfants */
+  position: relative;
+
+  z-index: 2; /* Assure que la boîte est au-dessus de la vidéo */
+}
+
+.opa{
+  animation: opa 4s;
+}
+
+@keyframes opa {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+/*=====================================================*/
+
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(2px, 2px) rotate(0deg); }
+  10% { transform: translate(-2px, -4px) rotate(-5deg); }
+  20% { transform: translate(-6px, 0px) rotate(5deg); }
+  30% { transform: translate(6px, 4px) rotate(0deg); }
+  40% { transform: translate(2px, -2px) rotate(5deg); }
+  50% { transform: translate(-2px, 4px) rotate(-5deg); }
+  60% { transform: translate(-6px, 2px) rotate(0deg); }
+  70% { transform: translate(6px, 2px) rotate(-5deg); }
+  80% { transform: translate(-2px, -2px) rotate(5deg); }
+  90% { transform: translate(2px, 4px) rotate(0deg); }
+  100% { transform: translate(2px, -4px) rotate(-5deg); }
+}
+
+
+
+/*-------------------------------------------------------*/
+.movie {
+  object-fit:cover;
+  animation: movie 1s forwards;
+}
+
+.unmovie {
+  animation: unmovie 1s ;
+}
+
+@keyframes movie {
+  0% {
+    clip-path: inset(0% 00% 00% 0%);
+    transform: translateY(0%); 
+  }
+  100% {
+    clip-path: inset(10% 00% 10% 0%);
+    transform: translateY(10px); 
+
+  }
+
+}
+
+@keyframes unmovie {
+  0% {
+    clip-path: inset(10% 00% 10% 0%);
+    transform: translateY(1px); 
+
+  }
+  100% {
+    clip-path: inset(0% 00% 00% 0%);
+    transform: translateY(0%); 
+  }
+}
+/*-------------------------------------------------------*/
+.blink {
+  animation: blink 5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0% {
+    filter: contrast(100%) brightness(100%);
+  }
+  5%{
+    filter: contrast(200%) brightness(0%);
+  }
+  10%{
+    filter: contrast(200%) brightness(0%);
+  }
+  15% {
+    filter: contrast(100%) brightness(100%);
+  }
+}
+
+/*-------------------------------------------------------*/
+.mirror {
+  animation: mirror 1s forwards;
+}
+.unmirror {
+  animation: unmirror 1s;
+}
+
+@keyframes mirror {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+@keyframes unmirror {
+  0% { transform: rotateY(180deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+/*-------------------------------------------------------*/
+.blur {
+  animation: blur 1s forwards;
+}
+.unblur {
+  animation: unblur 1s;
+}
+
+
+@keyframes blur {
+  0% { filter: blur(0px); }
+  100% { filter: blur(5px); }
+}
+@keyframes unblur {
+  0% { filter: blur(5px); }
+  100% { filter: blur(0px); }
+}
+
+/*-------------------------------------------------------*/
+
+.grey {
+  animation: greyscale 1s forwards;
+}
+.ungrey {
+  animation: ungreyscale 1s;
+}
+
+
+@keyframes greyscale {
+  0% { filter: grayscale(0%); }
+  100% { filter: grayscale(100%); }
+}
+@keyframes ungreyscale {
+  0% { filter: grayscale(100%); }
+  100% { filter: grayscale(0%); }
+}
+/*-------------------------------------------------------*/
+
+.invert {
+  animation: invertColor 1s forwards;
+}
+.uninvert {
+  animation: uninvertColor 1s;
+}
+
+
+@keyframes invertColor {
+  0% { filter: invert(0%); }
+  100% { filter: invert(100%); }
+}
+@keyframes uninvertColor {
+  0% { filter: invert(100%); }
+  100% { filter: invert(0); }
+}
+/*-------------------------------------------------------*/
+
+.wave {
+  
+  filter: url(#wavy); /* Applique le filtre SVG */
+}
+
+/*-------------------------------------------------------*/
+
+.zoomOut {
+  animation: zoomout 120s;
+  
+}
+
+@keyframes zoomout {
+  0% { transform: scale(1); }
+  100% { transform: scale(0.1); }
+}
+
+/*-------------------------------------------------------*/
+
+.pixelate {
+  
+  filter: url(#pixelate); /* Applique le filtre SVG */
+}
+/*-------------------------------------------------------*/

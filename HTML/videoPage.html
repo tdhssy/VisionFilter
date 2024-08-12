@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Video</title>
+    <link rel="stylesheet" href="../CSS/videoPage.css" />
+    <script defer src="../electronScript/render_Video.js"></script>
+  </head>
+  <body class="content">
+    <!--------------------------------------------------------------------------------------------------->
+    <!--FILTER-->
+    <svg>
+      <filter id="wavy">
+        <feTurbulence id="turbulence" type="fractalNoise" numOctaves="3" result="NOISE"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="50"></feDisplacementMap>
+        <animate xlink:href="#turbulence" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1"
+        values="0.006 0.01; 0.01 0.009; 0.03 0.007" repeatCount="indefinite"></animate>
+      </filter>
+    </svg>
+
+
+    <svg>
+      <filter id="pixelate" x="0" y="0">
+        <feFlood x="4" y="4" height="2" width="2"/>
+        <feComposite width="10" height="10"/>
+        <feTile result="a"/>
+        <feComposite in="SourceGraphic" in2="a" operator="in"/>
+        <feMorphology operator="dilate" radius="5"/>
+      </filter>
+    </svg>
+    <!--------------------------------------------------------------------------------------------------->
+
+    <div id="notifBox">
+      <p id="notifText"></p>
+    </div>
+
+    <!--------------------------------------------------------------------------------------------------->
+
+    <div class="video-container">
+      <video id="video"></video>
+    </div>
+
+  </body>
+</html>

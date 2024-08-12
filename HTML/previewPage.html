@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>VisionFilter</title>
+    
+    <link rel="stylesheet" href="../CSS/previewPage.css">
+    <script defer src="../electronScript/render_PreviewPage.js"></script>
+  </head>
+  <body class="content">
+
+
+    <img id="IMGlogo" src="../assets/VisionFilter-logo_with-text.png">
+
+    <div class="container">
+      <p id="subtitle">Preview</p>
+      <div id="videoContainer">
+        <video></video>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <p id="subtitle">Options</p>
+      <div class="option">
+        <div id="framerateDiv">
+          <p>Framerate </p>
+          <input type="number" id="inputFps" placeholder="Framerate" value="60" min="1" max="120">
+        </div>
+
+        <div id="ScreenDiv">
+          <p>Window </p>
+          <select id="dropdown" class="dropdown"></select>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div id="addressDiv">
+      <p>Server </p>
+      <input type="text" id="inputAddress" placeholder="address" value="ws://localhost:3000">
+      <button id="buttonTest" >Test</button>
+      <img id="statusImg" src="">
+    </div>
+ 
+
+    <div id="buttonDiv">
+      <button id="startButton" class="button">Start</button>
+    </div>
+
+  </body>
+</html>
