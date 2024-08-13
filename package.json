@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -dRf  ./build/VisionFilter*",
+    "build": "npm run clean && npx @electron/packager . VisionFilter --platform=win32 --arch=x64 --out=build/ --icon=./assets/icon.ico --ignore=\"^build/\" --ignore=\"README\\.md\" --ignore=\"package-lock\\.json\" --ignore=\"LICENCE\" --ignore=\"\\.gitignore\" --ignore=\"\\.git\" --ignore=\"node_modules/electron($|/)\" --ignore=\"node_modules/electron-packager($|/)\""
   },
   "author": "t.dhssy",
   "license": "AGPL-3.0",
