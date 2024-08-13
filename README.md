@@ -20,15 +20,17 @@
 
 ##
 
-**VisionFilter** est un logiciel permettant d'appliquer des filtres à des fenêtres spécifiques sur votre écran. Il utilise une connexion WebSocket pour recevoir des commandes de filtre à appliquer sur ce client.
+## **VisionFilter** est un logiciel permettant d'appliquer des filtres à des fenêtres spécifiques sur votre écran. Il utilise une connexion WebSocket pour recevoir des commandes d'un serveur afin de choisir un filtre.
 
-## Commandes
+
+
+# :memo: Commandes
 
 ```alt+num0``` : Fermer la fenêtre de capture.
 
 ```alt+num1``` : Désactiver/Activer le mode toujours premier plan.
 
-## Fonctionnalités
+# :mag_right: Fonctionnalités
 
 - **Connexion WebSocket** : Connectez-vous à un serveur WebSocket pour recevoir des commandes concernant les filtres à appliquer et leur durée.
 - **Réglage des FPS** : Configurez les images par seconde (FPS) pour la capture d'écran.
@@ -37,18 +39,12 @@
 - **Test de serveur** : Vérifiez la disponibilité du serveur pour recevoir des requêtes grâce à un système de ping.
 - **Fenêtre de prévisualisation** : Visualisez la fenêtre à capturer en temps réel grâce à une fenêtre de prévisualisation intégrée.
 
-## Prérequis
 
-- Node.js
-- npm (ou yarn)
-
-
-
-## Tech Stack
+# :gear: Pile technologique
 
 **Client:** Electron, socket.io-client
 
-## Lancement local
+# :cd: Lancement local
 
 Clonez le dépôt :
 
@@ -76,24 +72,34 @@ Démarrer l'application
 
 
 
-## Problèmes Connus
+# :warning: Problèmes Connus
 
-### 1. **Problèmes d'Exclusion des Fichiers lors du Packaging**
+## 1. **Problème de changement de fenêtre lors de la capture**
 
 **Symptôme :**
 Problème lors de changements du mode "toujours en premier plan".
 Le raccourcis alt+tab ne fonctionne pas pour revenir sur la fenêtre.
 
-**Solution :**
+**Solutions :**
 1. **Barre des taches** : Cliquer directement sur l'application depuis la barre des taches afin de reprendre le focus de la fenêtres.
 
 2. **Relancer une nouvelle capture** : Fermer la fenêtre et relancer une nouvelle capture.
 
 
-## Auteurs
+
+## 2. **Problèmes de décalage de la souris lors de la capture**
+
+**Symptôme :**
+Problème lors du lancement de la capture la souris peut être décalée par rapport à la souris originals.
+
+**Solution :**
+1. **Barre des taches** : Activer l'option afin de cacher la barre des taches.
+
+
+# :technologist: Auteur
 
 - [@tdhssy](https://github.com/tdhssy)
 
-## License
+# :ledger: License
 Ce logiciel est sous licence
 [AGPL License](https://choosealicense.com/licenses/agpl-3.0/)
