@@ -9,7 +9,7 @@
     "build": "npm run clean && npx @electron/packager . VisionFilter --platform=win32 --arch=x64 --out=build/ --icon=./assets/icon.ico --ignore=\"^build/\" --ignore=\"README\\.md\" --ignore=\"package-lock\\.json\" --ignore=\"LICENCE\" --ignore=\"\\.gitignore\" --ignore=\"\\.git\" --ignore=\"node_modules/electron($|/)\" --ignore=\"node_modules/electron-packager($|/)\""
   },
   "author": "t.dhssy",
-  "license": "AGPL-3.0",
+  "license": "GPL-3.0",
   "description": "Application de filtre pour les fenetres.",
   "devDependencies": {
     "@electron/packager": "^18.3.3",

@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/license-AGPLv3-blue.svg" alt="License AGPLv3">
+  <img src="https://img.shields.io/badge/license-GPLv3-blue.svg" alt="License GPLv3">
 </p>
 
 
@@ -102,4 +102,4 @@ Problème lors du lancement de la capture la souris peut être décalée par rap
 
 # :ledger: License
 Ce logiciel est sous licence
-[AGPL License](https://choosealicense.com/licenses/agpl-3.0/)
+[GPL License](https://choosealicense.com/licenses/gpl-3.0/)
