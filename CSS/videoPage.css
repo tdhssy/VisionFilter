@@ -40,7 +40,16 @@ svg{
   display: none;
 }
   
-
+#watermark{
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 45px;
+  display: flex;
+  position: absolute;
+  opacity: 0.1;
+  z-index: 1;
+}
 
 ::-webkit-scrollbar {
   visibility: hidden; /* Largeur de la barre de défilement */

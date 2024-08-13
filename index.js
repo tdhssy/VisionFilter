@@ -19,14 +19,13 @@ app.whenReady().then(async () => {
 
   mainWindow = new BrowserWindow({
     width: 420,
-    height: 655,
+    height: 665,
     icon: path.join(__dirname, 'assets', 'VisionFilter-logo_without-text.png'),
     resizable: false,
     autoHideMenuBar: true,
     maximizable: false, 
     fullscreenable: false,
     webPreferences: {
-      //nodeIntegration: true
       preload: path.join(__dirname, 'electronScript','preload.js'), 
       contextIsolation: true,
       nodeIntegration: false 
@@ -111,13 +110,17 @@ app.whenReady().then(async () => {
   //--------------------------------------------------------------------//
   ipcMain.on('open-video-page',async ()=>{
     //mainWindow.minimize();
-    await creatVideoPage();
+    
+    if(!videoWindow){
+      console.log("Newpage")
+      await creatVideoPage();
 
-    videoWindow.webContents.send('receive-video-stream',sourceID);
-
+      videoWindow.webContents.send('receive-video-stream',sourceID);
+    }
   })
 
   ipcMain.on('close-video-page',()=>{
+    
     closeVideoPage();
   })
 
@@ -132,7 +135,7 @@ app.whenReady().then(async () => {
 
   globalShortcut.register('alt+num1', () => {
     if (videoWindow) {
-      videoWindow.setAlwaysOnTop(!videoWindow.isAlwaysOnTop());
+      videoWindow.setAlwaysOnTop(isTop);
     }
   });
 
@@ -223,6 +226,8 @@ function closeVideoPage(){
   if(videoWindow){
     videoWindow.close();
   }
+
+  ServerAddress=null;
 }
 
 async function creatVideoPage(){
@@ -241,7 +246,8 @@ async function creatVideoPage(){
       webPreferences: {
         preload: path.join(__dirname, 'electronScript','preload.js'), 
         contextIsolation: true, 
-        nodeIntegration: false 
+        nodeIntegration: false,
+        backgroundThrottling: false
       }
     });
 

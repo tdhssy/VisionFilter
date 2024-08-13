@@ -1,17 +1,17 @@
 {
-  "name": "screenmodifier",
+  "name": "visionfilter",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "npx electron main.js",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "t.dhssy",
-  "license": "AGPLv3",
+  "license": "AGPL-3.0",
   "description": "Application de filtre pour les fenetres.",
   "devDependencies": {
-    "electron": "^31.3.1",
-    "electron-packager": "^17.1.2"
+    "@electron/packager": "^18.3.3",
+    "electron": "^31.3.1"
   },
   "dependencies": {
     "socket.io-client": "^4.7.5"
