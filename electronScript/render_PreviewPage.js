@@ -97,7 +97,7 @@ testButton.addEventListener('click',async ()=>{
   if(!isPinging){
     isPinging=true;
     imgStatus.src="../assets/loader.gif"
-    const result = await window.api.pingServer(inputAddress.value);
+    const result = await window.api.pingServer(inputAddress.value.trim());
 
     if(result[0]){
 
@@ -131,7 +131,7 @@ const video = document.querySelector('video')
 
 startButton.addEventListener('click',()=>{
 
-  window.api.setServer(inputAddress.value);
+  window.api.setServer(inputAddress.value.trim());
   window.api.setFPS(inputFps.value);
   window.api.openVideoPage();
   if (currentStream) {

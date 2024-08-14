@@ -38,6 +38,7 @@ app.whenReady().then(async () => {
   mainWindow.loadFile(path.join(__dirname,'./HTML/previewPage.html'));
 
   mainWindow.on('closed', () => {
+    mainWindow=null;
     globalShortcut.unregisterAll();
     closeVideoPage();
   });
@@ -135,7 +136,7 @@ app.whenReady().then(async () => {
 
   globalShortcut.register('alt+num1', () => {
     if (videoWindow) {
-      videoWindow.setAlwaysOnTop(isTop);
+      videoWindow.setAlwaysOnTop(!videoWindow.isAlwaysOnTop());
     }
   });
 
@@ -257,7 +258,9 @@ async function creatVideoPage(){
 
     videoWindow.on('closed', () => {
       videoWindow=null;
-      mainWindow.webContents.send("video-window-closed");
+      if(mainWindow){
+        mainWindow.webContents.send("video-window-closed");
+      }
       //mainWindow.restore();
     });
 
